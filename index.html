@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>j</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+  <script src="jquery-min.js"></script>
+  <script>
+    function copyToClipboard(element) {
+        var $temp = $("<textarea>");
+        $("body").append($temp);
+        $temp.val($(element).html().trim().replace(/  +/g, ' ').replace('<span class="hashtag">', '').replace('<span class="karambit">', '').replace('</span>', '').replace(/<br\s*[\/]?>/gi, "")).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Đã copy");
+    }
+</script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Canvas -->
+<canvas class="orb-canvas"></canvas>
+<!-- Overlay -->
+<dov class="contents">
+  <div class="controls">
+    <div>
+      <h2>Controls</h2>
+      <div class="inputs">
+        <label for="cringe">Số lượng từ:</label><br>
+        <input type="number" name="cringe" id="cringe" placeholder="Ví dụ: 10">
+      </div>
+    </div>
+    <button onclick="ccjv()"><span class="text-gradient">Generate</span></button>
+  </div>
+  <div class="output" id="output" onclick="copyToClipboard('#outputtext')">
+    <div id="outputtext"></div>
+  </div>
+</dov>
+<!-- partial -->
+<script src="cringetitle.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
