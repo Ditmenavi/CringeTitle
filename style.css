@@ -1,205 +1,104 @@
-:root {
-  --dark-color: hsl(var(--hue), 100%, 9%);
-  --light-color: hsl(var(--hue), 95%, 98%);
-  --base: hsl(var(--hue), 95%, 50%);
-  --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%);
-  --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%);
-
-  --font-family: "Poppins", system-ui;
-
-  --bg-gradient: linear-gradient(
-    to bottom,
-    hsl(var(--hue), 95%, 99%),
-    hsl(var(--hue), 95%, 84%)
-  );
-}
-
+@import url(../color_pallete/css/theme.css);
+@import url(../Assets/css/font.css);
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  max-width: 1920px;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  font-family: var(--font-family);
-  color: var(--dark-color);
-  background: var(--bg-gradient);
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-
-.orb-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.controls {
-  width: 250px;
-  min-width: 250px;
-  height: 80vh;
-  background: rgba(68, 68, 68, 0.375);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.controls button{
-  width: 100%;
-  height: 40px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  outline: none;
-  cursor: pointer;
-  border: 0px solid rgba(255, 255, 255, 0.125);
-  background: linear-gradient(
-    240deg,
-    hsla(var(--hue-complimentary1), 80%, 50%, 0.05) 40%,
-    hsla(var(--hue-complimentary2), 80%, 50%, 0.05)
-  );
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-.output {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background: rgba(68, 68, 68, 0.375);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
-  cursor: pointer;
-  transition: border 150ms;
-}
-.output:hover{
-  border: 1px solid hsl(var(--hue-complimentary2), 95%, 50%);
-}
-#outputtext{
-  width: 100%;
-  height: 80vh;
-  overflow-y: scroll;
-  padding: 20px;
-  margin: 20px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-#outputtext::-webkit-scrollbar {
-  display: none;
-}
-.contents{
-  display: flex;
-  align-items: stretch;
-  justify-content: space-around;
-  width: 95vw;
-  height: 80vh;
-  gap: 4rem;
-  padding-right: 2rem;
-}
-canvas{
-  background: hsl(var(--hue-complimentary1), 100%, 4%);
-}
-h2{
-  text-align: center;
-  color: #fff;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-.inputs{
-  color: #fff;
-}
-.inputs label{
-  padding-left: 20px;
-}
-input[type=number] { 
-  -moz-appearance: textfield;
-  appearance: textfield;
-  margin: 0; 
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none; 
-      margin: 0; 
-}
-#cringe{
-  background: rgba(68, 68, 68, 0);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #fff;
-  padding: 10px;
-  width: 100%;
-  margin-top: 5px;
-  transition: border 150ms;
-  outline: none;
-  text-align: center;
-}
-#cringe:hover{
-  border: 1px solid hsla(var(--hue-complimentary1), 95%, 50%, 0.3);
-}
-#cringe:focus{
-  border: 1px solid hsla(var(--hue-complimentary1), 95%, 50%, 1);
-}
-.text-gradient {
-  background-image: linear-gradient(
-    60deg,
-    hsl(var(--hue-complimentary1), 100%, 70%) 40%,
-    hsl(var(--hue-complimentary2), 100%, 70%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-}
-@media only screen and (max-width: 650px) {
-  *{
+    font-family: Montserrat;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  body{
-    overflow-y: scroll;
-    padding: 0;
-  }
-  .contents{
-    display: block;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    background: var(--md-sys-color-inverse-on-surface);
+    color: var(--md-sys-color-on-background);
+}
+.wrapper {
     width: 100vw;
     height: 100vh;
-    margin-top: 2rem;
-    padding: 0;
-  }
-  .controls{
-    width: 80vw;
-    margin-bottom: 2rem;
-    display: block;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .controls button{
-    margin-top: 20px;
-  }
-  .output{
-    width: 80vw;
-    margin-bottom: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.input-wrapper {
+    height: fit-content;
+    width: 650px;
+    max-width: 80vw;
+    padding: 20px;
+    border-radius: 18px;
+    background: var(--md-elv-3);
+    text-align: center;
+}
+.input-wrapper button {
+  background: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  padding: 10px 25px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: MontserratSemiBold;
+}
+.input-wrapper h4 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 12px;
+}
+.input-wrapper input {
+    resize: none;
+    background: var(--md-elv-5);
+    border: 0;
+    border-radius: 16px;
+    padding: 12px;
+    outline: none;
+    transition: box-shadow 150ms;
+    color: var(--md-sys-color-on-background);
+    height: 150px;
+    width: 100%;
+    scrollbar-width: none; 
+}
+.input-wrapper input::placeholder {
+  opacity: 1;
+  color: var(--md-sys-color-on-background);
+}
+.input-wrapper input::-webkit-scrollbar {
+    display: none;
+}
+.input-wrapper input:hover {
+    box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+.input-wrapper input:focus {
+    box-shadow: 0 0 0 2px var(--md-sys-color-on-primary-container);
+}
+.icon {
+    font-size: 40px;
+    color: var(--md-sys-color-primary);
+}
+#output {
+    min-height: 225px;
+    overflow-y: auto;
+    width: 650px;
+    max-width: 80vw;
+    padding: 20px;
+    background: var(--md-elv-3);
+    border-radius: 16px;
+    word-wrap: break-word;
+    scrollbar-width: none;
+    transition: box-shadow 150ms;
+}
+#output:hover {
+    box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+    cursor: pointer;
+}
+#output::-webkit-scrollbar {
+    display: none;
+}
+@media only screen and (max-width: 750px) {
+    .input-wrapper {
+        width: 80vw;
+    }
+    #output {
+        width: 80vw;
+    }
 }

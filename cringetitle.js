@@ -8,13 +8,22 @@ var cringe = [
     'gái xinh', 'ngủ ở khách sạn', 'ma nhập', 'sát nhân', 'noob', 'quỷ đầu loa', 'búp bê', 'granny', 'play together', 'siren head',
     'scp', 'undertale', 'sans'
 ];
-var salt = $("#cringe").val();
-function ccjv() {
-    var salt = $("#cringe").val();
-    $("#outputtext").html("");
+// function ccjv() {
+//     var salt = $("#input").val();
+//     $("#output").html("");
+//     output = "";
+//     for(var index = 0; index < salt; index++) {
+//         output = output + cringe[Math.floor(Math.random()*cringe.length)] + " ";
+//     }
+//     $("#output").html(output);
+// }
+var salt = $("#input").val();
+function cringetitle() {
+    var salt = $("#input").val();
+    $("#output").html("");
     output = "";
     for(var index = 0; index < salt; index++) {
         output = output + cringe[Math.floor(Math.random()*cringe.length)] + " ";
     }
-    $("#outputtext").html(output);
+    $("#output").html(output);
 }
